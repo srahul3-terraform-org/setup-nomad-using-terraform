@@ -279,5 +279,5 @@ resource "aws_route53_record" "nomad" {
   name    = "${var.name}.${var.fqdn}"
   type    = "A"
   ttl     = 300
-  records = [aws_instance.server[*].public_ip]
+  records = [aws_instance.server[0].public_ip]
 }
