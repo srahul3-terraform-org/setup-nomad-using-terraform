@@ -12,7 +12,10 @@ output "consul_token_secret" {
 output "nomad_ui" {
   value = "http://${aws_route53_record.nomad.name}:4646/ui"
 }
-output "nomad_secret" {
+output "NOMAD_ADDR" {
+  value = "http://${aws_route53_record.nomad.name}:4646"
+}
+output "NOMAD_TOKEN" {
   value = "${data.http.kv.response_body}"
 }
 
