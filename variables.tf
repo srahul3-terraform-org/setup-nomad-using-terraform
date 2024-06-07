@@ -64,3 +64,9 @@ variable "fqdn" {
   description = "Route53 FQDN to use for the ALB."
   default     = "rahul-sharma.aws.sbx.hashicorpdemo.com"
 }
+
+variable "route53_zone_id" {
+  description = "Route53 zone ID to use for the ALB."
+  default     = "Z00249962GI08OD0DJE4X"
+  
+}

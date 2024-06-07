@@ -275,7 +275,7 @@ data "aws_iam_policy_document" "auto_discover_cluster" {
 
 
 resource "aws_route53_record" "nomad" {
-  zone_id = aws_route53_zone.primary.zone_id
+  zone_id = var.route53_zone_id
   name    = "${var.name}.${var.fqdn}"
   type    = "A"
   ttl     = 300
