@@ -273,11 +273,19 @@ data "aws_iam_policy_document" "auto_discover_cluster" {
   }
 }
 
-
 resource "aws_route53_record" "nomad" {
   zone_id = var.route53_zone_id
   name    = "${var.name}.${var.fqdn}"
   type    = "A"
   ttl     = 300
   records = [aws_instance.server[0].public_ip]
+}
+
+data "http" "kv" {
+  url = "http://${aws_instance.server[0].public_ip}:8500/v1/kv/nomad_user_token?raw"
+
+  # Optional request headers
+  request_headers = {
+    Authorization = "Bearer ${random_uuid.nomad_token.result}"
+  }
 }

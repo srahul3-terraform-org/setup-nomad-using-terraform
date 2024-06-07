@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+    http = {
+      source = "hashicorp/http"
+      version = "3.4.3"
+    }
   }
 
   backend "remote" {
@@ -18,4 +22,8 @@ terraform {
 }
 provider "aws" {
   region = var.region
+}
+
+provider "http" {
+  # Configuration options
 }
