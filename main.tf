@@ -163,7 +163,7 @@ resource "aws_instance" "server" {
     delete_on_termination = "true"
   }
 
-  user_data = templatefile("${path.module}/../shared/data-scripts/user-data-server.sh", {
+  user_data = templatefile("${path.module}/shared/data-scripts/user-data-server.sh", {
     server_count              = var.server_count
     region                    = var.region
     cloud_env                 = "aws"
@@ -215,7 +215,7 @@ resource "aws_instance" "client" {
     delete_on_termination = "true"
   }
 
-  user_data = templatefile("${path.module}/../shared/data-scripts/user-data-client.sh", {
+  user_data = templatefile("${path.module}/shared/data-scripts/user-data-client.sh", {
     region                    = var.region
     cloud_env                 = "aws"
     retry_join                = var.retry_join
