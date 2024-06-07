@@ -1,9 +1,5 @@
 terraform {
   required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~>2.20.0"
-    }
     aws = {
       source  = "hashicorp/aws"
       version = "~> 4.0"
@@ -15,13 +11,11 @@ terraform {
     organization = "srahul3"
 
     workspaces {
-      name = "ecs-setup-tf"
+      name = "setup-nomad-using-terraform"
     }
   }
   
 }
-provider "docker" {}
-
 provider "aws" {
   region = var.region
 }

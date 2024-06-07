@@ -1,8 +1,4 @@
-# doormat aws tf-push --workspace tfe-ecs-setup --organization srahul3 --account 980777455695
-provider "aws" {
-  region = var.region
-}
-
+# doormat aws tf-push --workspace setup-nomad-using-terraform --organization srahul3 --account 980777455695
 data "aws_vpc" "default" {
   default = true
 }
