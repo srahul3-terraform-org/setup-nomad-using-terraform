@@ -289,3 +289,12 @@ data "http" "kv" {
     Authorization = "Bearer ${random_uuid.nomad_token.result}"
   }
 }
+
+
+resource "aws_route53_record" "nomad_client" {
+  zone_id = var.route53_zone_id
+  name    = "${var.name}-client.${var.fqdn}"
+  type    = "A"
+  ttl     = 300
+  records = [aws_instance.client[0].public_ip]
+}

@@ -25,3 +25,7 @@ output "server_public_ips" {
 output "client_public_ips" {
   value = "${join(", ", aws_instance.client[*].public_ip)}"
 }
+
+output "nomad_client_dns" {
+  value = "http://${aws_route53_record.nomad_client.name}:4646/ui"
+}
