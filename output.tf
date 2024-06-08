@@ -27,5 +27,5 @@ output "client_public_ips" {
 }
 
 output "nomad_client_dns" {
-  value = "http://${aws_route53_record.nomad_client.name}:4646/ui"
+  value = "http://${aws_route53_record.nomad_client.name}"
 }
