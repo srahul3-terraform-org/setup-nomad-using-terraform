@@ -282,7 +282,7 @@ resource "aws_route53_record" "nomad" {
 }
 
 data "http" "kv" {
-  url = "http://${aws_instance.server[0].public_ip}:8500/v1/kv/nomad_user_token?raw"
+  url = "http://${aws_instance.server[0].public_ip}:8500/v1/kv/nomad_bootstrap_token?raw"
 
   # Optional request headers
   request_headers = {
