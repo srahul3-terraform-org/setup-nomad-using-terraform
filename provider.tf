@@ -27,3 +27,5 @@ provider "aws" {
 provider "http" {
   # Configuration options
 }
+
+provider "hcp" {}
